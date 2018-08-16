@@ -1,9 +1,12 @@
+#A simple dockerfile for downloading from youtube and convert mp3
 FROM alpine:edge
+MAINTAINER Serdar.Sarioglu@mysystem.org
+
 RUN apk update
 RUN apk add python bash git curl py-pip ffmpeg
 RUN pip install --upgrade pip
 RUN pip install --upgrade youtube-dl
 
-ENV domain mysystem.org
+ENV youtube https://youtu.be/z5GTScs8Jos?list=RDz5GTScs8Jos
 
-ENTRYPOINT ["sh", "-c", "python Sublist3r/sublist3r.py -d ${domain}"]
+ENTRYPOINT ["sh", "-c", "youtube-dl ${youtube}"]
