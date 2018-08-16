@@ -9,4 +9,4 @@ RUN pip install --upgrade youtube-dl
 
 ENV youtube https://youtu.be/z5GTScs8Jos?list=RDz5GTScs8Jos
 
-ENTRYPOINT ["sh", "-c", "youtube-dl ${youtube}"]
+ENTRYPOINT ["sh", "-c", "youtube-dl --no-playlist ${youtube}"]
