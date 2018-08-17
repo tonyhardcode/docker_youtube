@@ -6,6 +6,7 @@ RUN apk update
 RUN apk add python bash git curl py-pip ffmpeg
 RUN pip install --upgrade pip
 RUN pip install --upgrade youtube-dl
+RUN mkdir download
 
 ENV youtube https://youtu.be/z5GTScs8Jos
 
