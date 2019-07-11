@@ -10,4 +10,6 @@ RUN mkdir download
 
 ENV youtube https://youtu.be/z5GTScs8Jos
 
-ENTRYPOINT ["sh", "-c", "cd download && youtube-dl  -i  --extract-audio --audio-format mp3 --output '%(title)s.%(ext)s' ${youtube}"]
+youtube-dl --extract-audio --audio-format mp3 example.com/watch?v=id
+
+ENTRYPOINT ["sh", "-c", "cd download && youtube-dl --verbose --ignore-errors --no-continue --no-overwrites --no-post-overwrites --write-annotations --write-thumbnail --output '%(id)s.%(ext)s' -- ${youtube}"]
