@@ -6,9 +6,9 @@ RUN apk update
 RUN apk add python bash git curl py-pip ffmpeg
 RUN pip install --upgrade pip
 RUN pip install --upgrade youtube-dl
-RUN mkdir download
+RUN mkdir -p download
 
-ARG youtube https://www.youtube.com/watch?v=SfvCjVizjY8
+ARG youtube
 ENV youtube=${youtube}
 
 ENTRYPOINT ["sh", "-c", "cd download && youtube-dl --verbose --ignore-errors --no-continue --no-overwrites --no-post-overwrites --write-annotations --write-thumbnail --output '%(id)s.%(ext)s' -- ${youtube}"]
