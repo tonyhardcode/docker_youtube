@@ -8,6 +8,7 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade youtube-dl
 RUN mkdir download
 
-ARG youtube=https://www.youtube.com/watch?v=SfvCjVizjY8
+ARG youtube https://www.youtube.com/watch?v=SfvCjVizjY8
+ENV youtube=${youtube}
 
 ENTRYPOINT ["sh", "-c", "cd download && youtube-dl --verbose --ignore-errors --no-continue --no-overwrites --no-post-overwrites --write-annotations --write-thumbnail --output '%(id)s.%(ext)s' -- ${youtube}"]
